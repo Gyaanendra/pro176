@@ -22,6 +22,7 @@ let riddles = [
     answer: "hole",
   },
 ];
+const jsConfetti = new JSConfetti();
 
 $(document).ready(function () {
   display();
@@ -29,13 +30,13 @@ $(document).ready(function () {
 });
 
 function reset_() {
-  $("#input-answer").keyup(function (){
+  $("#input-answer").keyup(function () {
     $("#next-btn").click(function () {
       $(".answer").empty();
-      $("#input-answer").val('')
+      $("#input-answer").val("");
       display();
     });
-  })
+  });
 }
 
 function display() {
@@ -56,6 +57,7 @@ function display() {
           count: party.variation.range(0, 5),
           size: party.variation.range(0.6, 1.2),
         });
+        jsConfetti.addConfetti();
       } else {
         $(".answer").html("InCorrect");
       }
